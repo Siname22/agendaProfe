@@ -50,7 +50,8 @@ class PersonaController extends Controller
 
     public function edit(Persona $persona) // Show the form for editing the specified resource.
     {
-        return view('personas_edit', compact('persona'));
+        $categorias = Categoria::orderBy('nombre')->get();
+        return view('personas_edit', compact('persona' , 'categorias'));
     }
 
     public function update(Request $request, Persona $persona) // Update the specified resource in storage.
